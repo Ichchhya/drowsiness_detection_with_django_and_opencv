@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+*{
+    margin: 0;;
+    padding:0;
+}
+html{
+    scroll-behavior: smooth;
+}
+.navbar{
+    display: flex;
+    align-items:center;
+    font-family:'Ubuntu',sans-serif;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    font-size:15px;
+
+
+}
+.nav-list{
+    width:70%; 
+    display:flex;
+    align-items: center;
+}
+.nav-list li{
+    list-style: none; 
+    padding:26px 30px ;
+}
+
+.nav-list li a{
+    text-decoration : none;
+    color:white;
+    font-size: 15px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.nav-list li a:hover{
+    color:grey;
+}
+
+.background{
+    background:rgba(0,0,0,0.7)url('images/abc.jpg');
+    background-size: cover;
+    background-blend-mode:darken;    
+    background-attachment: fixed;
+
+
+}
+.drowsy{
+    position: fixed;
+
+}
+.firstSection{
+    height:58vh;
+}
+button{
+    font-size:40px;
+    padding:10px;
+    border-radius:10px;
+    margin:20px;
+}
+/*.container.button{
+    text-align:center;
+    
+}*/
+
+.box-main{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 50%;
+    margin:auto;
+    height:32%;
+    
+}
+
+.firstHalf{
+    width:75%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+}
+.btn{
+    padding: 10px 45px;
+    margin: 7px 0;
+    background: none;
+    color:white;
+    cursor:pointer;
+} 
+
+.text-big{
+    font-size: 41px;
+    padding-top:55px;
+    position: fixed;}
+
+.text-small{
+  font-size:18px;}
+
+
+.secRight{
+    height: 550px;
+    display:flex;
+    align-items:center;
+    justify-content: space-evenly;
+    max-width: 90%; 
+    margin:auto; 
+}
+.section{
+    height: 400px;
+    display:flex;
+    text-align:left;
+    justify-content: space-evenly;
+    max-width: 90%; 
+    margin:auto; 
+    padding-right:25%;
+   }
+
+.para{
+    padding: 0px 65px;
+    
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.sectionSubTag{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sectionTag{
+    padding: 20px 0;
+}
+.text-footer{
+    text-align: center;
+    padding:30px 0;
+    font-family:'Ubuntu',sans-serif;
+    display:flex;
+    justify-content: center;
+    color:white;
+
+}
+
+
+
+
+
+
+ 

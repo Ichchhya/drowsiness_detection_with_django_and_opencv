@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+
+
+<html>
+<head>
+    <title>Drowsiness Detection System</title>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}" >
+</head>
+<body>
+    <nav class="navbar background">
+        <ul class="nav-list">
+            <li><a  href="#"> Home </a> </li>
+            <li><a  href="#description"> Description </a></li>
+            <li><a href="#setting">Settings</a></li>
+            <li><a  href="#more details"> More details </a></li>
+        </ul>
+    </nav>
+    
+<!--    <img src="{% url 'video_feed' %}">-->
+
+    <section class="background firstSection">
+        <div class="box-main">
+         <p class="drowsy" style="font-size:40px"> DROWSINESS ALERT!! </p>
+            </div>
+            <div><button onclick="{% url 'video_feed' %}">Start</button></div>
+
+        <!--<div class="container">
+         <button type="start">start</button>
+         </div> -->
+
+    </section>
+
+    <section class="secRight" id="description">
+        <div class="para">
+        <p class="sectionTag "><p style="font-size:25px"><b> INTRODUCTION </b></p></p>
+        <p class="sectionSubTag text-small">Drowsiness detection is a system that detects whether or not the person is feeling drowsy.
+        In the current context, people are living a busy life where time management is one of the major problem.
+        More and more professions require long term concentration. But they are unable to manage their time for professional life and
+        personal life. This results in lack of time for food,rest and also entertainment.
+        So, a system that can alert a person who s/he is feeling drowsy is necessary for people in various fields to keep a close eye on their works, so that they can react to any sudden events immediately; be it a student who is unable to concentrate in his study,
+        or a worker who may not alert during his working hours or a driver who may be very tired and drowsy while driving.In case of drivers,fatigue often becomes direct cause of accidents. Therefore, it has become a necessity to develop a systems that detects the drowsiness and alerts them.
+        This system is based on the real time facial images analysis for warning the person of drowsiness and will be a video based system that measures PERCLOS(Percentage of Eye Closure) , a scientifically supported measure of drowsiness associated with slow eye closure. </p>
+        </div>
+        <div class="thumbnail">
+            <img src ="images/img.jpg" alt= "detection image" class="imgFluid">
+        </div>
+
+    </section>
+    <section class="secRight" >
+        <div class="para">
+        <p class="sectionTag "> <p style="font-size:25px"> <b> SCOPE</b></p></p>
+        <p class="sectionSubTag text-small">With the world getting digitized instantaneously, the rate of population using technology has increased rapidly.
+         As internet plays an essential role in every aspect related to the utilization of technology and innovation. The number of internet users is rapidly increasing day by day. The internet has also affected on many sectors especially on business models and how business are conducted the world over, but has also made it possible for customers to gain access to certain information and markets that hitherto were not possiblr. The number of heads using personal computers and having access to internet is innumerable. So, as the requirement for the implementation of this
+        system is just a webcam and internet connection, this system is feasible for most of the people. The pie chart below shows the number of internet
+        users in various parts of the world.</p>
+
+        <div class="thumbnail">
+            <img src ="images/scopee.png" alt= "Scope image" class="center">
+        </div>
+        </div>
+
+    </section>
+    <section class="secRight" id="more details" >
+        <div class="para">
+        <p class="sectionTag "><p style="font-size:25px"> <b> BENEFITS </b> </p></p>
+        <p class="sectionSubTag  text-small"> This system detects any sorts of being drowsy- heavy eyed, tired, sleepiness etc.
+        Without a doubt, this system helps to prevent from being accident as the number of cases of accidents is increasing day
+        by day. In other words, it is a system to decrease the number of accidents.People are being more busy on their works which
+        leads to tiredness like they don't have  enough  time  to take enough rest which is needed. This system also helps people to
+        concentrate people for a long time. This system is user-friendly. People with basic knowledge can easily use it .Like  different
+        types of profession can use it and are allowed to register to Drowiness detection system suing their email address. People
+        can select the alarm according to their choice. People are also able to mute and unmute the alarm according to their requirement.
+        This system operates fast if the processor of Personal Computer and Internet Speed is fast. This system is easily accessible  from
+        anywhere with the help of PC with internet connection.</p>
+    </section>
+
+    <section class="section" >
+        <div class="para">
+         <p class="sectionTag "> <p style="font-size:25px"> <b> LIMITATIONS </b></p></p>
+         <ul class="sectionSubTag text-small">
+             <li>User are supposed to have a personal computer and internet connection. </li>
+             <li>Due to certain position of the user, the system may not be able to detect drowsiness.</li>
+             <li>It may be challenging to capture aspects of natural responses and behaviour.</li>
+             <li>It may be challenging task in case of a person wearing spectacles or having small eyelids.</li>
+         </ul>
+        </div>
+    </section>
+
+    <footer class="background">
+        <p class="text-footer">
+            Copyright &copy; 2027 www.drowsiness.com- All rights reserved
+        </p>
+    </footer>
+</body>
+</html>
