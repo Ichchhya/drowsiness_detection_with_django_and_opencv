@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-{% load staticfiles %}
-
-
+{% load static %}
 
 <html>
 <head>
@@ -17,14 +15,15 @@
             <li><a  href="#more details"> More details </a></li>
         </ul>
     </nav>
-    
-<!--    <img src="{% url 'video_feed' %}">-->
+
 
     <section class="background firstSection">
         <div class="box-main">
          <p class="drowsy" style="font-size:40px"> DROWSINESS ALERT!! </p>
             </div>
-            <div><button onclick="{% url 'video_feed' %}">Start</button></div>
+            <div>
+                <center><a href="{% url 'start' %}" style="color:white;">Start system</a></center>
+               </div>
 
         <!--<div class="container">
          <button type="start">start</button>
@@ -32,7 +31,7 @@
 
     </section>
 
-    <section class="secRight" id="description">
+    <section class="secRight" id="description" style="margin-top:30%;">
         <div class="para">
         <p class="sectionTag "><p style="font-size:25px"><b> INTRODUCTION </b></p></p>
         <p class="sectionSubTag text-small">Drowsiness detection is a system that detects whether or not the person is feeling drowsy.

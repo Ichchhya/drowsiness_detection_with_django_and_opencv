@@ -1,11 +1,15 @@
 import cv2
 import os
-# import keras as k
 import numpy as np
 from keras import models
-import time
-import imutils
 from django.conf import settings
+from playsound import playsound
+
+
+# face = cv2.CascadeClassifier(os.path.join(settings.BASE_DIR, 'haarcascade_frontalface_alt.xml'))
+# leye = cv2.CascadeClassifier(os.path.join(settings.BASE_DIR, 'haarcascade_lefteye_2splits.xml'))
+# reye = cv2.CascadeClassifier(os.path.join(settings.BASE_DIR, 'haarcascade_righteye_2splits.xml'))
+#
 
 face = cv2.CascadeClassifier(os.path.join(settings.BASE_DIR, 'haarcascade_frontalface_alt.xml'))
 leye = cv2.CascadeClassifier(os.path.join(settings.BASE_DIR, 'haarcascade_lefteye_2splits.xml'))
@@ -24,14 +28,14 @@ class VideoCamera(object):
     lpred = [99]
 
     def __init__(self):
-        self.cap = cv2.VideoCapture("video/myvid4.mp4")
+        self.cap = cv2.VideoCapture("test.flv")
+        # self.cap = cv2.VideoCapture(0)
 
     def __del__(self):
         self.cap.release()
         cv2.destroyAllWindows()
 
-    def get_frame(self):
-
+    def get_frame(self,score=0):
         ret, frame = self.cap.read()
         height, width = frame.shape[:2]
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -51,10 +55,10 @@ class VideoCamera(object):
             r_eye = r_eye / 255
             r_eye = r_eye.reshape(24, 24, -1)
             r_eye = np.expand_dims(r_eye, axis=0)
-            rpred = model.predict_classes(r_eye)
-            if rpred[0] == 1:
+            self.rpred = model.predict_classes(r_eye)
+            if self.rpred[0] == 1:
                 lbl = 'Open'
-            elif rpred[0] == 0:
+            elif self.rpred[0] == 0:
                 lbl = 'Closed'
             break
 
@@ -66,14 +70,14 @@ class VideoCamera(object):
             l_eye = l_eye / 255
             l_eye = l_eye.reshape(24, 24, -1)
             l_eye = np.expand_dims(l_eye, axis=0)
-            lpred = model.predict_classes(l_eye)
-            if (lpred[0] == 1):
+            self.lpred = model.predict_classes(l_eye)
+            if (self.lpred[0] == 1):
                 lbl = 'Open'
-            if (lpred[0] == 0):
+            if (self.lpred[0] == 0):
                 lbl = 'Closed'
             break
 
-        if (rpred[0] == 0 and lpred[0] == 0):
+        if (self.rpred[0] == 0 and self.lpred[0] == 0):
             score = self.score + 1
             cv2.putText(frame, "Closed", (10, height - 20), self.font, 1, (255, 255, 255), 1, cv2.LINE_AA)
             # if(rpred[0]==1 or lpred[0]==1):
@@ -87,11 +91,10 @@ class VideoCamera(object):
         if score > 15:
             # person is feeling sleepy so we beep the alarm
 
-            # try:
-            #     sound.play()
-            #
-            # except:  # isplaying = False
-            #     pass
+            try:
+                playsound(os.path.join(settings.BASE_DIR, 'alarm.wav'))
+            except:  # isplaying = False
+                pass
             if self.thick < 16:
                 thick = self.thick + 2
             else:
@@ -99,6 +102,9 @@ class VideoCamera(object):
                 if thick < 2:
                     thick = 2
             cv2.rectangle(frame, (0, 0), (width, height), (0, 0, 255), thick)
-            ret , jpeg = cv2.imdecode('.jpg', frame)
+            ret, jpeg = cv2.imencode('.jpg', frame)
+            return jpeg.tobytes()
+        else:
+            ret, jpeg = cv2.imencode('.jpg', frame)
             return jpeg.tobytes()
 
